@@ -1,5 +1,11 @@
 import { ApiPromise, WsProvider } from '@polkadot/api';
 
+/**
+ * The objective of this reproduction is to recreate the following error:
+ * 
+ * DRR: createType(ExtrinsicStatus):: Cannot map Enum JSON, unable to find 'reason' in future, ready, broadcast, inblock, retracted, finalitytimeout, finalized, usurped, dropped, invalid
+ * Error: createType(ExtrinsicStatus):: Cannot map Enum JSON, unable to find 'reason' in future, ready, broadcast, inblock, retracted, finalitytimeout, finalized, usurped, dropped, invalid
+ */
 const main = async (): Promise<void> => {
     const api = await ApiPromise.create({
         provider: new WsProvider('ws://127.0.0.1:9944'),
